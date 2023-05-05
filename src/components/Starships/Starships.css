@@ -1,0 +1,20 @@
+.starships{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 10px;
+  padding: 10px;
+  justify-content: center;
+}
+
+.starships>a{
+  display: flex;
+  width: 200px;
+  height: 100px;
+  margin: 10px;
+  padding: 20px;
+  background-color: rgb(31, 62, 54);
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
