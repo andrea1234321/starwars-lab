@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import Starships from './components/Starships/Starships'
+import StarshipDetails from './components/StarshipPage/StarshipPage'
 import { Route, Routes } from 'react-router-dom'
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <>
       <Routes>
         <Route path='/' element={<Starships/>}/>
+        <Route path='/starships/:starshipId' element={<StarshipDetails/>}/>
       </Routes>
     </>
   )

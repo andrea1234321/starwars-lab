@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { getAllStarships } from "../../services/sw-api";
+import { getStarship } from "../../services/sw-api";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import './Starships.css'
@@ -20,7 +21,8 @@ const Starships = () => {
     <>
       <div className="starships">
         {allStarships.map((starship, idx)=> {
-          return <Link to={``} key={starship.idx}>{starship.name}</Link>
+          let starshipId= starship.url.slice(32,33)
+          return <Link to={`starships/${starshipId}`} key={starship.idx}>{starship.name}</Link>
         })}
       </div>
     </>
