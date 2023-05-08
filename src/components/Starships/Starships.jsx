@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { getAllStarships } from "../../services/sw-api";
-import { getStarship } from "../../services/sw-api";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import './Starships.css'
 
 const Starships = () => {
   const [allStarships, setAllStarships]= useState([])
+
 
   useEffect(()=> {
     const fetchAllStarships= async () => {
@@ -15,14 +15,15 @@ const Starships = () => {
     }
     fetchAllStarships()
   }, [])
-  
-  console.log(allStarships)
+
+  if(!allStarships.length) return <h1>Loading all starships...</h1>
+
   return ( 
     <>
       <div className="starships">
-        {allStarships.map((starship, idx)=> {
-          let starshipId= starship.url.slice(32,33)
-          return <Link to={`starships/${starshipId}`} key={starship.idx}>{starship.name}</Link>
+        {allStarships.map((starship)=> {
+          let starshipId= starship.url.slice(32)
+          return <Link to={`starships/${starshipId}`} key={starshipId}>{starship.name}</Link>
         })}
       </div>
     </>
